@@ -2,7 +2,7 @@
 
 **Author:** Oly
 **Status:** Draft v1
-**Last updated:** September 2026
+**Updated:** September  2026
 **Supersedes:** my original 2024 test plan for this API
 
 ## Objective
