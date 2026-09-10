@@ -1,0 +1,28 @@
+{
+  "name": "restful-booker-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+     "test:smoke": "newman run postman/Restful-Booker-API-Tests.postman_collection.json -e postman/Restful-Booker.postman_environment.json --folder \"00 Health\" --folder \"01 Auth\" --folder \"02 Booking Lifecycle\" -r cli,htmlextra --reporter-htmlextra-export newman/smoke-report.html",
+    "test:regression": "newman run postman/Restful-Booker-API-Tests.postman_collection.json -e postman/Restful-Booker.postman_environment.json --folder \"00 Health\" --folder \"01 Auth\" --folder \"02 Booking Lifecycle\" --folder \"03 Validation\" --folder \"04 Authorization\" --folder \"05 Search & Filters\" --folder \"06 Docs & Contract\" -r cli,htmlextra --reporter-htmlextra-export newman/regression-report.html",
+    "test:known-issues": "newman run postman/Restful-Booker-API-Tests.postman_collection.json -e postman/Restful-Booker.postman_environment.json --folder \"99 Known Issues\" -r cli,htmlextra --reporter-htmlextra-export newman/known-issues-report.html"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Olympiah/Restful-Booker-API.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Olympiah/Restful-Booker-API/issues"
+  },
+  "homepage": "https://github.com/Olympiah/Restful-Booker-API#readme",
+  "devDependencies": {
+    "newman": "^6.2.2",
+    "newman-reporter-htmlextra": "^1.23.1"
+  }
+}

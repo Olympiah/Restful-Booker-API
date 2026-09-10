@@ -2,7 +2,7 @@
 
 **Author:** Oly
 **Status:** Draft v1
-**Last updated:** September 2026
+**Updated:** September  2026
 
 ## Purpose
 
