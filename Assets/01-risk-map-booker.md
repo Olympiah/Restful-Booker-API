@@ -6,7 +6,7 @@
 
 ## Purpose
 
-This risk map decides where my testing effort goes. Every test case and every decision in the [Test Strategy](./02-test-strategy.md) traces back to a risk ID below, so it's clear why something is tested, and why some things aren't.
+This risk map decides where my testing effort goes. Every test case and every decision in the [Test Strategy](./02-test-strategy-booker.md) traces back to a risk ID below, so it's clear why something is tested, and why some things aren't.
 
 ## Context
 
@@ -52,4 +52,4 @@ These affect how reliably I can test rather than the product itself. They shape 
 
 ## Next
 
-The [Test Strategy](./02-test-strategy.md) turns these risks into an approach: which techniques apply to each risk, how the Postman collection is organized, and which risks the CI smoke suite covers versus the full regression suite.
+The [Test Strategy](./02-test-strategy-booker.md) turns these risks into an approach: which techniques apply to each risk, how the Postman collection is organized, and which risks the CI smoke suite covers versus the full regression suite.

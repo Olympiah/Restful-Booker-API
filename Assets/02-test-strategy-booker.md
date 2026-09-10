@@ -6,7 +6,7 @@
 
 ## Purpose
 
-This document explains *how* I test the Restful-Booker API. The [Risk Map](./01-risk-map.md) decides *where* the effort goes. The [Test Plan](./03-test-plan.md) covers scope, schedule and exit criteria for this project and summarizes this strategy in its Test Approach section.
+This document explains *how* I test the Restful-Booker API. The [Risk Map](./01-risk-map-booker.md) decides *where* the effort goes. The [Test Plan](./03-test-plan-booker.md) covers scope, schedule and exit criteria for this project and summarizes this strategy in its Test Approach section.
 
 ## Approach in one paragraph
 
@@ -90,4 +90,4 @@ Defects go in `bugs/` as Markdown files named `BUG-<number>-<short-title>.md`, u
 
 ## Out of scope
 
-As defined in the [Risk Map](./01-risk-map.md#out-of-scope): load, performance, concurrency and rate-limit testing; security testing beyond auth and authorization; and browser, device or OS compatibility.
+As defined in the [Risk Map](./01-risk-map-booker.md#out-of-scope): load, performance, concurrency and rate-limit testing; security testing beyond auth and authorization; and browser, device or OS compatibility.

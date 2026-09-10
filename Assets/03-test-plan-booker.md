@@ -19,7 +19,7 @@ Verify that the Restful-Booker API handles authentication, authorization and the
 
 ### Inclusions
 
-The product risks R1–R9 in the [Risk Map](./01-risk-map.md):
+The product risks R1–R9 in the [Risk Map](./01-risk-map-booker.md):
 
 - Input validation on create and update (R1)
 - Authentication (R2) and authorization on write endpoints (R3)
@@ -35,7 +35,7 @@ The product risks R1–R9 in the [Risk Map](./01-risk-map.md):
 - Security testing beyond authentication and authorization
 - Browser, device and OS compatibility
 
-The reasons are in the [Risk Map](./01-risk-map.md#out-of-scope).
+The reasons are in the [Risk Map](./01-risk-map-booker.md#out-of-scope).
 
 ## Test Environments
 
@@ -54,13 +54,13 @@ The instance is shared and periodically reset, so no test depends on pre-existin
 - Each report includes the request as a cURL command, the actual response, the expected behavior with the reason for it, severity, and links to the risk ID and test case ID.
 - The failing test moves to the non-blocking Known Issues suite and keeps asserting the correct behavior.
 
-Full details: [Test Strategy](./02-test-strategy.md#handling-known-bugs-in-ci).
+Full details: [Test Strategy](./02-test-strategy-booker.md#handling-known-bugs-in-ci).
 
 ## Test Approach
 
 Testing is risk-based. Each risk maps to a folder in a Postman collection, where requests carry scripted assertions on status codes, body values, headers and JSON schema. Every flow creates and cleans up its own test data, so the suite works on the shared public instance. Newman runs the collection in GitHub Actions: a smoke suite on every push, and the full regression suite nightly. Tests for confirmed bugs sit in a non-blocking Known Issues folder.
 
-Full details: [Test Strategy](./02-test-strategy.md).
+Full details: [Test Strategy](./02-test-strategy-booker.md).
 
 ## Test Schedule
 
@@ -77,14 +77,14 @@ No fixed dates, since this is a side project. Phases run in order, and each leav
 
 | Deliverable | Location |
 |---|---|
-| Risk map | `docs/01-risk-map.md` |
-| Test strategy | `docs/02-test-strategy.md` |
-| Test plan | `docs/03-test-plan.md` |
-| Test cases | `test-cases/Booker_API_Test_Cases.xlsx` |
+| Risk map | `Assets/01-risk-map-booker.md` |
+| Test strategy | `Assets/02-test-strategy-booker.md` |
+| Test plan | `Assets/03-test-plan-booker.md` |
+| Test cases | `Assets/Booker_API_Test_Cases.xlsx` |
 | Postman collection and environment | `postman/` |
 | CI workflow | `.github/workflows/` |
 | Bug reports | `bugs/` |
-| Test summary | `docs/04-test-summary.md` |
+| Test summary | `Assets/04-test-summary-booker.md` |
 | README | `README.md` |
 
 ## Entry and Exit Criteria
@@ -118,7 +118,7 @@ If the hosted instance is down or returning server errors across the board, I pa
 
 ## Risks and Mitigations
 
-The environment risks (a shared, resetting instance; slow response times; deliberate bugs) are covered as P1–P3 in the [Risk Map](./01-risk-map.md#project-risks). Two more apply to how I'm running this project:
+The environment risks (a shared, resetting instance; slow response times; deliberate bugs) are covered as P1–P3 in the [Risk Map](./01-risk-map-booker.md#project-risks). Two more apply to how I'm running this project:
 
 | Risk | Mitigation |
 |---|---|
