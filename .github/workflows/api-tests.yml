@@ -1,0 +1,70 @@
+name: API Tests
+
+on:
+  push:
+    branches: [main]
+  # schedule:
+  #   - cron: "17 2 * * *"   # nightly at 02:17 UTC (uncomment to enable)
+  workflow_dispatch:          # adds a "Run workflow" button on GitHub
+
+jobs:
+  smoke:
+    name: Smoke (blocking)
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Run smoke suite
+        run: npm run test:smoke -- --env-var "username=${{ secrets.BOOKER_USERNAME }}" --env-var "password=${{ secrets.BOOKER_PASSWORD }}"
+      - name: Upload smoke report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: smoke-report
+          path: newman/smoke-report.html
+
+  regression:
+    name: Regression (blocking)
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Run regression suite
+        run: npm run test:regression -- --env-var "username=${{ secrets.BOOKER_USERNAME }}" --env-var "password=${{ secrets.BOOKER_PASSWORD }}"
+      - name: Upload regression report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: regression-report
+          path: newman/regression-report.html
+
+  known-issues:
+    name: Known Issues (non-blocking)
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Run known issues suite
+        run: npm run test:known-issues -- --env-var "username=${{ secrets.BOOKER_USERNAME }}" --env-var "password=${{ secrets.BOOKER_PASSWORD }}"
+      - name: Upload known issues report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: known-issues-report
+          path: newman/known-issues-report.html
